@@ -16,7 +16,6 @@ jobs:
     
     # Define the environment variables that need to be passed securely
     env:
-      EMBOLD_SERVER_URL: http://63.176.47.15:5050
       EMBOLD_REPO_ID: 3caf282e5684e0eea5cf8ef667e2a525
       
     steps:
@@ -44,8 +43,6 @@ jobs:
       # Step 7: Run the Embold analysis scanner
       - name: Run Embold Scanner
         # Pass the secret token directly to the environment variable used by the script
-        env:
-          EMBOLD_TOKEN: ${{ secrets.EMBOLD_TOKEN_CPP }}
         run: |
           echo "Starting Embold analysis..."
           ./browserstack-codequality-scanner/bin/embold-scanner analyse \
